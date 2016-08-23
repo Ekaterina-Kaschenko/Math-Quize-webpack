@@ -1,4 +1,5 @@
-import '../styles/stylefile1.scss';
+require('../styles/stylefile1.scss');
+require('./timeout.js');
 
 ;(function(window) {
   'use strict';

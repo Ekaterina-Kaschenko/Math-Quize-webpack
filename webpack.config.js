@@ -62,7 +62,8 @@ module.exports = (function makeWebpackConfig () {
      */
     chunkFilename: isProd ? '[name].[hash].js' : '[name].bundle.js'
   };
-
+  
+  // watch: true
   /**
    * Devtool
    * Reference: http://webpack.github.io/docs/configuration.html#devtool
