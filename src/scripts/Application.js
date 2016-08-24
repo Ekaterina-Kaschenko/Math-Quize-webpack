@@ -1,5 +1,6 @@
 import Timeout from './timeout.js';
 import '../styles/stylefile1.scss';
+import '../styles/reset.scss';
 
 const _elements = {
   //блоки игры
@@ -11,6 +12,7 @@ const _elements = {
   buttons: {
     start:       document.getElementsByClassName('start')[0],
     restart:     document.getElementsByClassName('restart')[0],
+    settings:    document.getElementsByClassName('settings')[0],
     answer: {
       button:    document.getElementsByClassName('action-buttons'),
       yes:       document.getElementsByClassName('yes')[0],
@@ -32,11 +34,11 @@ const _elements = {
   }
 };
 
-const _timeout = new Timeout(_elements, 300);
+const _timeout = new Timeout(_elements, 200);
 
 class Quize {
   constructor() {
-    this.operations = ['+', '-', '/', '*'];
+    this.operations = [' + ', ' - ', ' / ', ' * '];
     this.answers = {
       taskAnswer: null,
       fakeAnswer: null
@@ -125,10 +127,10 @@ class Quize {
   _calculator(num1, num2, operation) {
     var result = null;
 
-    if (operation === '+') { result = num1 + num2; }
-    if (operation === '-') { result = num1 - num2; }
-    if (operation === '*') { result = num1 * num2; }
-    if (operation === '/') { result = (num1 / num2).toFixed(2); }
+    if (operation === ' + ') { result = num1 + num2; }
+    if (operation === ' - ') { result = num1 - num2; }
+    if (operation === ' * ') { result = num1 * num2; }
+    if (operation === ' / ') { result = (num1 / num2).toFixed(2); }
 
     return result;
   }
@@ -150,6 +152,15 @@ class Quize {
     if (typeof callback === 'function') { callback(); }
     _elements.screens[screenName].style.display = 'block';
   }
+
+  settings () {
+    _elements.buttons.settings.addEventListener('click', () => {
+      console.log('click');
+    });
+  }
+
+
 }
 
 new Quize();
+

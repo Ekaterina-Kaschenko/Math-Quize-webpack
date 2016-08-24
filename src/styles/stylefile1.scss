@@ -1,6 +1,7 @@
 .wrapper {
 	min-height: 100vh;
 	display: flex;
+	flex-direction: column;
 	font-family: 'Open Sans Condensed', sans-serif;
 	background-color: #39cccc;
 	font-size: 16px;
@@ -56,35 +57,32 @@
 	}
 }
 
-/*.progress-bar-condition {
-	background-color: #0074d9;
-	border-radius: 10px;
-	height: 100%;
-	transition: all 0.1s linear;
-}*/
 
 .button {
 	display: inline-block;
 	margin: 0 auto;
-	padding: .3em 1em;
 	border-radius: 5px;
 	background-color: #39cccc;
 	font-weight: 700;
+	margin: 0 .5em;
 	width: 100px;
 	height: 100px;
 	background-size: contain;
 	border-radius: 50%;
 	cursor:pointer;
 	transition: all .3s linear;
+
+	&:hover {
+		transform: translate(0, 0);
+		box-shadow: 0px 0px 30px rgba( 0, 0, 0, .5);
+		transition: all .3s linear;
+	}
+
+	&:focus {
+		outline: none;
+	}
 }
 
-.button:focus {
-	outline: none;
-}
-
-.restart {
-	margin-top: 30px;
-}
 
 .start {
 	background-image: url(../assets/start.png);
@@ -100,10 +98,25 @@
 
 .restart {
 	background-image: url(../assets/restart.png);
+	margin-top: 30px;
 }
 
-.button:hover {
-	transform: translate(0, 0);
-	box-shadow: 0px 0px 30px rgba( 0, 0, 0, .5);
-	transition: all .3s linear;
+.settings {
+	display: flex;
+  justify-content: center;
+  align-items: center;
+	position: absolute;
+	right: 0;
+	margin: 1.5em;
+	width: 4em;
+	height: 4em;
+	border: 1px solid #000;
+	border-radius: 10px;
+	text-align: center;
+}
+   
+.settings-container {
+	border: 2px solid #000;
+	display: flex;
+	justify-content: flex-end;
 }

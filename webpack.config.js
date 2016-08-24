@@ -3,6 +3,7 @@ var webpack           = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+// var fontAwasome       = require("font-awesome-sass-loader");
 
 /**
  * Env
@@ -145,7 +146,12 @@ module.exports = (function makeWebpackConfig () {
        */
       test: /\.jade$/,
       loader: 'jade'
-    }]
+    }, 
+
+    { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
+      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }
+
+    ]
   };
 
   /**

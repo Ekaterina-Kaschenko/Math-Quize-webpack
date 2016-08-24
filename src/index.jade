@@ -3,9 +3,12 @@ html(lang='en')
   head
     meta(charset='UTF-8')
     title
-    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css')
+    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1", crossorigin="anonymous")
   body
     .wrapper
+
+      .settings
+        i.fa.fa-cogs.fa-3x(aria-hidden='true')
       .quize
         .start-game
           h1.title Math quize
@@ -18,7 +21,8 @@ html(lang='en')
           .example
             span.a-value
             span.operation
-            span.b-value = 
+            span.b-value 
+            span  = 
             span.answer
           form.task-solution
             .yes.button.action-buttons
