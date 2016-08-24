@@ -1,0 +1,29 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css')
+  body
+    .wrapper
+      .quize
+        .start-game
+          h1.title Math quize
+          p.description.
+            Solve the task, if it is correct - press Yes, otherwise - No. You have only 5 sec to think. Good luck!
+          .start.button
+        .play-game
+          .progress-bar
+            .progress-bar-condition
+          .example
+            span.a-value
+            span.operation
+            span.b-value = 
+            span.answer
+          form.task-solution
+            .yes.button.action-buttons
+            .no.button.action-buttons
+        .end-game
+          p.description End game. Your score is 
+            span.score
+          .restart.button

@@ -1,47 +1,38 @@
-;(function(window) {
-  'use strict';
-
-  var Timeout;
-  Timeout = (function() {
-    function Timeout(elements, time) {
-      this.elements = elements;
-      this.time     = time;
-
-      this.startTimeout();
-    }
-
-    Timeout.prototype.timeout = {
-      time:     Timeout.prototype.time,
+class Timeout {
+  constructor(elements, time) {
+    this.elements = elements;
+    this.timeout = {
+      time,
       interval: null,
       count:    0
     };
 
-    Timeout.prototype.startTimeout = function() {
-      this.resetTimeout();
+    this.startTimeout();
+  }
 
-      var timeout = this.timeout;
+  startTimeout() {
+    this.resetTimeout();
 
-      if (timeout.interval !== null) { clearInterval(timeout.interval); }
-      timeout.interval = setInterval(function () {
-        if (timeout.count >= 100) {
-          clearInterval(timeout.interval);
-          this.resetTimeout();
-        }
-        timeout.count++;
-        this.setProgressBarWidth(timeout.count);
-      }.bind(this), this.time);
-    };
+    var timeout = this.timeout;
 
-    Timeout.prototype.resetTimeout = function() {
-      this.timeout.count = 0;
-    };
+    if (timeout.interval !== null) { clearInterval(timeout.interval); }
+    timeout.interval = setInterval(() => {
+      if (timeout.count >= 100) {
+        clearInterval(timeout.interval);
+        this.resetTimeout();
+      }
+      timeout.count++;
+      this.setProgressBarWidth(timeout.count);
+    }, timeout.time);
+  }
 
-    Timeout.prototype.setProgressBarWidth = function(value) {
-      this.elements.service.progressBar.handler.style.width = value + '%';
-    };
-    return Timeout;
-  })();
+  resetTimeout() {
+    this.timeout.count = 0;
+  }
 
-  window.Timeout = Timeout;
+  setProgressBarWidth(value) {
+    this.elements.service.progressBar.handler.style.width = `${value}%`;
+  };
+}
 
-})(window);
+export default Timeout;

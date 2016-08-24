@@ -136,6 +136,15 @@ module.exports = (function makeWebpackConfig () {
        */
       test: /\.html$/,
       loader: 'html'
+    }, {
+
+      /**
+       * JADE LOADER
+       * Reference: https://github.com/webpack/jade-loader
+       * Allow loading jade through js
+       */
+      test: /\.jade$/,
+      loader: 'jade'
     }]
   };
 
@@ -171,11 +180,11 @@ module.exports = (function makeWebpackConfig () {
 
   /**
    * Reference: https://github.com/ampedandwired/html-webpack-plugin
-   * Render index.html
+   * Render index.jade
    */
   config.plugins.push(
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './src/index.jade',
       inject: 'body'
     }),
 
