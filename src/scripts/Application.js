@@ -53,6 +53,7 @@ class Quize {
     this.startGame(false);
     this.restartGame();
     this.manager();
+    this.settings();
   }
 
   startGame(render) {
